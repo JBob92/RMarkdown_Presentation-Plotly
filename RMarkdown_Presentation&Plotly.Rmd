@@ -1,0 +1,35 @@
+---
+title: "RMarkdown_Presentation&Plotly"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Interactive Plotly Graph
+
+This presentation contains an interactive **Plotly** plot generated in R.
+
+### Scatter Plot Example
+
+```{r}
+library(plotly)
+
+# Sample dataset
+set.seed(123)
+data <- data.frame(
+  x = rnorm(100),
+  y = rnorm(100)
+)
+
+# Create interactive plot
+p <- plot_ly(data, x = ~x, y = ~y, type = 'scatter', mode = 'markers',
+             marker = list(color = 'blue')) %>%
+  layout(title = "Random Scatter Plot")
+
+p  # Ensure the plot is displayed
+```
+
+
+
